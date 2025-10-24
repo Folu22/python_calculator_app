@@ -1,16 +1,16 @@
 #create divison operation : of any number
 
 class Division:
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
+    def __init__(self, *args):
+        self.numbers = args
 
-    def division(self):
-        div = self.a / self.b
-        if self.b == 0:
-            raise ZeroDivisionError("Cannot divide by Zero (0)")
-        else:
-            print("Number divisible")
-        return div
+    def divide(self):
+        if len(self.numbers) == 0:
+            return None
+        result = self.numbers[0]
+        for num in self.numbers[1:]:
+            if num == 0:
+                raise ValueError("Cannot divide by zero")
+            result /= num
+        return result
     
-
